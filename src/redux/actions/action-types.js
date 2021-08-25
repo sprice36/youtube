@@ -1,0 +1,2 @@
+export const SEARCH_RESULTS = "GET_SEARCH_RESULTS";
+export const VIDEO_DETAILS = "VIDEO_DETAILS";
