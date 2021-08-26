@@ -1,24 +1,19 @@
-import React from 'react';
-import FetchAPI from './FetchAPI';
-import axios from 'axios';
+import VideoCard from "./VideoCard";
 
-const RecommendedVideos = () => {
-    axios
-    .get(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=5&regionCode=PK&key=AIzaSyBpU4qmIOrepyEnXBUNCgqJuRfxEYN5kp8`)
-    .then(response => {
-        console.log(response.data.items)
-    })
-   // .then(VideoCards(response.data.items))
-    
+function VideoCards({ data }) {
+  const renderData = data.map((item) => {
+    const videoCardProps = {
+      title: item.snippet.title,
+      thumbnail: item.snippet.thumbnails.medium.url,
+      channelTitle: item.snippet.channelTitle,
+      views: item.statistics.viewCount,
+      // still need to add 'days ago posted' to videoCardProps object
+    };
+
+    return <VideoCard videoCardProps={videoCardProps} key={item.id} />;
+  });
+
+  return <div>{renderData}</div>;
 }
-
-function VideoCards(videoItems){
-     let newVideoCards = [];
-     
-    //  videoItems.map(item => {
-    //      const title =  item.
-    //  })
-}
-
 
 export default VideoCards;
