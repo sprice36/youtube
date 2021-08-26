@@ -8,9 +8,8 @@ import Trending from "./pages/Trending";
 
 import Sidebar from "./components/Sidebar";
 import SidebarRow from "./components/SidebarRow";
-
-import Header from "./components/Header";
 import FetchAPI from "./components/FetchAPI";
+import Header from "./components/Header";
 import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import VideoCards from "./components/VideoCards";
@@ -24,7 +23,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-   // FetchAPI();
+    FetchAPI();
   }
 
   render() {
@@ -32,7 +31,7 @@ class App extends Component {
       <div>
         <Header />
         <Sidebar />
-        <VideoCards /> 
+       {/* <VideoCards /> */}
         {/* <Router>
 
         <Sidebar>
