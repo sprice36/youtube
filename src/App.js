@@ -12,6 +12,7 @@ import FetchAPI from "./components/FetchAPI";
 import Header from "./components/Header";
 import React, { Component } from "react";
 import { render } from "@testing-library/react";
+import VideoCard from "./components/VideoCard";
 import VideoCards from "./components/VideoCards";
 
 
@@ -31,6 +32,7 @@ class App extends Component {
       <div>
         <Header />
         <Sidebar />
+        <VideoCard />
        {/* <VideoCards /> */}
         {/* <Router>
 
