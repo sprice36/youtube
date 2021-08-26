@@ -34,6 +34,7 @@ class App extends Component {
         <Sidebar />
         <VideoCards /> 
         {/* <Router>
+
         <Sidebar>
           <Route path='/' component={Home} exact/>
           <Route path='/trending' component={Trending} />
