@@ -1,10 +1,16 @@
 import React from 'react';
+import "./SidebarRow.css";
 
 const SidebarRow = ({icon, selected, title, url}) => {
     
     return (
-        <div className={selected}>
-        <h2 className="title">{title}</h2>
+        <div>
+            <p style={{display:"flex"}}>
+                <a href='/' className="sidebar-icons">
+                {icon}
+                </a>
+            </p>
+            <p className="title">{title}</p>
         </div>
     )
 }
