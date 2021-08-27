@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Subscriptions from "./pages/Subscriptions";
@@ -14,17 +14,24 @@ import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import VideoCard from "./components/VideoCard";
 import VideoCards from "./components/VideoCards";
-
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
+    this.state = {
+      data: [],
+    };
   }
 
   componentDidMount() {
-    FetchAPI();
+    axios
+      .get(
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=PK&key=AIzaSyBpU4qmIOrepyEnXBUNCgqJuRfxEYN5kp8`
+      )
+      .then((response) => {
+        this.setState({ data: response.data.items });
+      });
   }
 
   render() {
@@ -32,16 +39,16 @@ class App extends Component {
       <div>
         <Header />
         <Sidebar />
-        <VideoCard />
-       {/* <VideoCards /> */}
+        <VideoCards data={this.state.data} />
         {/* <Router>
-
-        <Sidebar>
-          <Route path='/' component={Home} exact/>
-          <Route path='/trending' component={Trending} />
-          <Route path='/subscriptions' component={Subscriptions} />
-        </Sidebar>
-      </Router> */}
+          <Sidebar>
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route path="/trending" component={Trending} />
+              <Route path="/subscriptions" component={Subscriptions} />
+            </Switch>
+          </Sidebar>
+        </Router> */}
       </div>
     );
   }
