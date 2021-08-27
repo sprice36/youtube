@@ -33,7 +33,8 @@ class App extends Component {
         `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=PK&key=AIzaSyBpU4qmIOrepyEnXBUNCgqJuRfxEYN5kp8`
       )
       .then((response) => {
-        this.setState({ data: response.data.items });
+       // this.setState({ data: response.data.items });
+        this.props.setSearchResults(response.data.items);
       });
   }
 
@@ -42,7 +43,7 @@ class App extends Component {
       <div>
         <Header />
         <Sidebar />
-        <VideoCards data={this.state.data} />
+        <VideoCards data={this.props.searchResults} />
         {/* <Router>
           <Sidebar>
             <Switch>
@@ -59,7 +60,7 @@ class App extends Component {
 
 App.propTypes = {
   setVideoDetails: PropTypes.func,
-  setSearchDetails: PropTypes.func
+  setSearchResults: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
