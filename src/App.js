@@ -43,7 +43,7 @@ class App extends Component {
       <div>
         <Header />
         <Sidebar />
-        <VideoCards data={this.props.searchResults} />
+        <VideoCards data={this.props.searchResults} /> 
         {/* <Router>
           <Sidebar>
             <Switch>
