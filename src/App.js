@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import Home from "./pages/Home";
 import Subscriptions from "./pages/Subscriptions";
@@ -15,6 +17,7 @@ import { render } from "@testing-library/react";
 import VideoCard from "./components/VideoCard";
 import VideoCards from "./components/VideoCards";
 import axios from "axios";
+import { mapDispatchToProps, mapStateToProps } from "./redux/actions/actions"; 
 
 class App extends Component {
   constructor(props) {
@@ -53,4 +56,10 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+App.propTypes = {
+  setVideoDetails: PropTypes.func,
+  setSearchDetails: PropTypes.func
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

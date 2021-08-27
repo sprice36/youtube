@@ -6,8 +6,10 @@ import { BiSearch } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
 import logo from "../yt_logo.png";
 import { connect } from "react-redux";
-import * as types from "../redux/actions/action-types";
+import { setSearchResults,
+  setVideoDetails } from "../redux/actions/actions";
 import axios from "axios";
+
 import PropTypes from "prop-types";
 import { mapDispatchToProps, mapStateToProps } from "../redux/actions/actions"; 
 
@@ -59,6 +61,7 @@ function Header() {
 
 Header.propTypes = {
   setSearchResults: PropTypes.func,
+  setVideoDetails: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
