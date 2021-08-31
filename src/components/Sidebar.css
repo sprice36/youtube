@@ -1,5 +1,15 @@
-.test{
-    width: 20%;
-    background-color: grey;
+.bar{
+    width: 8%;
     border: 1px black solid;
+    margin: 2rem;
+    display: block;
+    text-align: center;
+}
+
+.sidebar-icons{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    color:#000;
 }

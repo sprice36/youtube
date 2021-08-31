@@ -1,7 +1,7 @@
 import { SEARCH_RESULTS, VIDEO_DETAILS } from "./actions/action-types";
 const initialState = {
-	videoDetails: {}, // individual video info,
-	searchResults: [], // call API and store results
+  videoDetails: {},  // individual video info,
+  searchResults: [] // call API and store results
 };
 
 function reducer(state = initialState, action) {
