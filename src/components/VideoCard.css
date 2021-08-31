@@ -3,6 +3,7 @@
 	flex-direction: column;
 	width: 25%;
 	max-width: 100%;
+	margin-left: 80;
 }
 
 .video-thumbnail {

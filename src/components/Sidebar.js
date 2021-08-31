@@ -21,7 +21,8 @@ function Sidebar() {
   const history = <BsClockHistory />;
   
   return (
-      <div className="bar">
+        
+      <div className="bar"  style={{height:0.2,width:90}}>
         <SidebarRow title="home" icon={home}/>
         <SidebarRow title="explore" icon={explore}/>
         <SidebarRow title="subscription" icon={sub}/>
