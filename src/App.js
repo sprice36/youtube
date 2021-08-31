@@ -17,34 +17,34 @@ import { render } from "@testing-library/react";
 import VideoCard from "./components/VideoCard";
 import VideoCards from "./components/VideoCards";
 import axios from "axios";
-import { mapDispatchToProps, mapStateToProps } from "./redux/actions/actions"; 
+import { mapDispatchToProps, mapStateToProps } from "./redux/actions/actions";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: [],
+		};
+	}
 
-  componentDidMount() {
-    axios
-      .get(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=PK&key=AIzaSyBpU4qmIOrepyEnXBUNCgqJuRfxEYN5kp8`
-      )
-      .then((response) => {
-       // this.setState({ data: response.data.items });
-        this.props.setSearchResults(response.data.items);
-      });
-  }
+	componentDidMount() {
+		axios
+			.get(
+				`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=PK&key=AIzaSyBpU4qmIOrepyEnXBUNCgqJuRfxEYN5kp8`
+			)
+			.then((response) => {
+				// this.setState({ data: response.data.items });
+				this.props.setSearchResults(response.data.items);
+			});
+	}
 
-  render() {
-    return (
-      <div>
-        <Header />
-        <Sidebar />
-        <VideoCards data={this.props.searchResults} /> 
-        {/* <Router>
+	render() {
+		return (
+			<div>
+				<Header />
+				<Sidebar />
+				<VideoCards data={this.props.searchResults} />
+				{/* <Router>
           <Sidebar>
             <Switch>
               <Route path="/" component={Home} exact />
@@ -53,14 +53,14 @@ class App extends Component {
             </Switch>
           </Sidebar>
         </Router> */}
-      </div>
-    );
-  }
+			</div>
+		);
+	}
 }
 
 App.propTypes = {
-  setVideoDetails: PropTypes.func,
-  setSearchResults: PropTypes.func
-}
+	setVideoDetails: PropTypes.func,
+	setSearchResults: PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
