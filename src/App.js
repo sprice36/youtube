@@ -42,6 +42,13 @@ class App extends Component {
 		return (
 			<div>
 				<Header />
+				<hr
+        style={{
+            color:'#808080',
+            backgroundColor: '#808080',
+            height: 0
+        }}
+    />
 				<Sidebar />
 				<VideoCards data={this.props.searchResults} />
 				{/* <Router>

@@ -4,9 +4,9 @@ import "./VideoCard.css";
 const VideoCard = ({ videoCardProps }) => {
   const { thumbnail, title, channelTitle, views } = videoCardProps;
   return (
-    <div className="VideoCard">
-      <img className="video-thumbnail" src={thumbnail} alt="thumbail" />
-      <div className="content-container">
+    <div className="VideoCard"  style={{marginLeft:90}}>
+      <img className="video-thumbnail" src={thumbnail} alt="thumbail"  />
+      <div className="content-container" >
         <img
           className="profile-pic"
           src="https://via.placeholder.com/25"
